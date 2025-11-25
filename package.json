@@ -1,0 +1,25 @@
+{
+  "name": "annmarieb-landing",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bbold-bb/AnnMarieB-Landing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bbold-bb/AnnMarieB-Landing/issues"
+  },
+  "homepage": "https://github.com/bbold-bb/AnnMarieB-Landing#readme",
+  "description": "",
+  "devDependencies": {
+    "vite": "^7.2.4"
+  }
+}
