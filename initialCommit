@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnnMarie Barrell | Legacy Agency of the Fingerlakes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+        
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+        
+        /* Legacy Brand Colors derived from typical insurance aesthetics and site context */
+        .bg-legacy-navy { background-color: #0f2b4c; }
+        .text-legacy-navy { color: #0f2b4c; }
+        .bg-legacy-gold { background-color: #c5a059; } 
+        .text-legacy-gold { color: #c5a059; }
+        .hover-legacy-gold:hover { background-color: #b08d4b; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <!-- Logo / Brand Name -->
+                    <a href="https://mylegacyins.com/" target="_blank" class="flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved text-legacy-navy text-3xl"></i>
+                        <div class="flex flex-col">
+                            <span class="font-bold text-xl text-legacy-navy leading-none tracking-tight">LEGACY AGENCY</span>
+                            <span class="text-xs text-gray-500 font-semibold tracking-wider">OF THE FINGERLAKES</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-600 hover:text-legacy-navy font-medium transition">About AnnMarie</a>
+                    <a href="#services" class="text-gray-600 hover:text-legacy-navy font-medium transition">Services</a>
+                    <a href="https://mylegacyins.com/online-insurance-quotes" target="_blank" class="bg-legacy-navy text-white px-5 py-2 rounded-full font-bold hover:bg-blue-900 transition shadow-lg transform hover:-translate-y-0.5">
+                        Get a Quote
+                    </a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center md:hidden">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-legacy-navy focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <a href="#about" class="block py-3 px-4 text-gray-700 hover:bg-gray-100">About AnnMarie</a>
+            <a href="#services" class="block py-3 px-4 text-gray-700 hover:bg-gray-100">Services</a>
+            <a href="#contact" class="block py-3 px-4 text-legacy-navy font-bold hover:bg-gray-100">Contact Me</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative bg-legacy-navy text-white pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Abstract Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 100 C 20 0 50 0 100 100 Z" fill="white" />
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left space-y-6">
+                    <div class="inline-block bg-legacy-gold text-white px-3 py-1 rounded text-xs font-bold uppercase tracking-widest mb-2">
+                        Licensed Agent
+                    </div>
+                    <h1 class="text-4xl lg:text-6xl font-black leading-tight">
+                        Protecting Your Legacy <br/>
+                        <span class="text-legacy-gold">In The Finger Lakes</span>
+                    </h1>
+                    <p class="text-lg text-gray-300 max-w-xl mx-auto lg:mx-0">
+                        Hi, I'm <strong>AnnMarie Barrell</strong>. As your local independent agent, I work for <em>you</em>, not the insurance companies. Let's find the perfect coverage for your life and business.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                        <a href="#contact" class="bg-legacy-gold text-white px-8 py-4 rounded-lg font-bold text-lg hover-legacy-gold transition shadow-lg text-center">
+                            Contact Me Today
+                        </a>
+                        <a href="tel:3152208169" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-legacy-navy transition text-center">
+                            <i class="fas fa-phone-alt mr-2"></i> (315) 220-8169
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Agent Image Placeholder -->
+                <div class="relative mx-auto lg:ml-auto w-64 h-64 lg:w-96 lg:h-96">
+                    <div class="absolute inset-0 bg-legacy-gold rounded-full transform translate-x-4 translate-y-4 opacity-30"></div>
+                    <!-- Image Updated -->
+                    <div class="absolute inset-0 bg-gray-200 rounded-full overflow-hidden border-4 border-white flex items-center justify-center bg-cover bg-center" style="background-image: url('https://media.licdn.com/dms/image/v2/D5603AQEONZOcwH0vZg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1666396393107?e=1765411200&v=beta&t=PcgjSt9fE718N4Jm1AbK1NQQ8NLQzGq_gnLp7UmfkGo');">
+                    </div>
+                    <!-- Badge -->
+                    <div class="absolute bottom-4 right-4 bg-white text-legacy-navy px-4 py-2 rounded-lg shadow-lg text-center">
+                        <p class="text-xs text-gray-500 uppercase font-bold">Experience</p>
+                        <p class="font-bold text-lg">Trusted Agent</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-legacy-navy mb-6">Why Work With AnnMarie?</h2>
+            <div class="w-24 h-1 bg-legacy-gold mx-auto mb-8"></div>
+            <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                Based in Waterloo, NY, I take pride in serving the Finger Lakes community. Unlike big national call centers, I am right here in your neighborhood. I understand the unique needs of our local families and businesses. 
+                <br><br>
+                At <strong>Legacy Agency</strong>, we are independent. This means I can shop dozens of top-rated carriers (like Erie, Travelers, Progressive, and more) to find you the best rate and coverage combination. I don't just sell policies; I build relationships.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div class="p-6 bg-gray-50 rounded-xl border border-gray-100 hover:shadow-md transition">
+                    <i class="fas fa-handshake text-4xl text-legacy-gold mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Personal Service</h3>
+                    <p class="text-gray-500 text-sm">Direct access to me via phone or email. No endless phone menus.</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-xl border border-gray-100 hover:shadow-md transition">
+                    <i class="fas fa-search-dollar text-4xl text-legacy-gold mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Better Rates</h3>
+                    <p class="text-gray-500 text-sm">I compare quotes from multiple companies to save you money.</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-xl border border-gray-100 hover:shadow-md transition">
+                    <i class="fas fa-home text-4xl text-legacy-gold mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Local Expert</h3>
+                    <p class="text-gray-500 text-sm">Deep knowledge of Waterloo and the Finger Lakes region.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-legacy-navy">Coverage We Provide</h2>
+                <p class="text-gray-500 mt-2">Comprehensive protection for every aspect of your life.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Service 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition text-center group">
+                    <div class="w-14 h-14 bg-blue-50 text-legacy-navy rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-legacy-navy group-hover:text-white transition">
+                        <i class="fas fa-car text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800">Auto Insurance</h3>
+                    <p class="text-xs text-gray-500 mt-2">Cars, Trucks, & Classics</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition text-center group">
+                    <div class="w-14 h-14 bg-blue-50 text-legacy-navy rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-legacy-navy group-hover:text-white transition">
+                        <i class="fas fa-house-chimney text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800">Homeowners</h3>
+                    <p class="text-xs text-gray-500 mt-2">Home, Renters, & Condo</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition text-center group">
+                    <div class="w-14 h-14 bg-blue-50 text-legacy-navy rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-legacy-navy group-hover:text-white transition">
+                        <i class="fas fa-store text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800">Business</h3>
+                    <p class="text-xs text-gray-500 mt-2">Liability, Property, & Auto</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition text-center group">
+                    <div class="w-14 h-14 bg-blue-50 text-legacy-navy rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-legacy-navy group-hover:text-white transition">
+                        <i class="fas fa-sailboat text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800">Toys & Rec</h3>
+                    <p class="text-xs text-gray-500 mt-2">Boats, ATVs, & RVs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-legacy-navy text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <h2 class="text-3xl font-bold">Let's Connect</h2>
+                    <p class="text-gray-300">
+                        Have a question about your policy? Need a quote? I'm here to help. Reach out to me directly or visit our office in Waterloo.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-legacy-gold p-3 rounded-lg">
+                                <i class="fas fa-phone-alt text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-lg">Call Me</h4>
+                                <a href="tel:3152208169" class="text-gray-300 hover:text-white transition">315-220-8169</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-legacy-gold p-3 rounded-lg">
+                                <i class="fab fa-linkedin-in text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-lg">Connect Online</h4>
+                                <a href="https://www.linkedin.com/in/annmariebarrell/" target="_blank" class="text-gray-300 hover:text-white transition">View my LinkedIn Profile</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-legacy-gold p-3 rounded-lg">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-lg">Visit the Office</h4>
+                                <p class="text-gray-300">
+                                    Legacy Agency of the Fingerlakes<br>
+                                    59 Washington St, Waterloo, NY 13165
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simple Contact Form UI -->
+                <div class="bg-white rounded-xl p-8 text-gray-800 shadow-2xl">
+                    <h3 class="text-2xl font-bold text-legacy-navy mb-6">Send Me a Message</h3>
+                    
+                    <!-- Updated for Netlify Forms -->
+                    <!-- 1. Added data-netlify="true" -->
+                    <!-- 2. Added name="contact" -->
+                    <!-- 3. Removed action="mailto..." so it submits to Netlify servers -->
+                    <form name="contact" method="POST" data-netlify="true">
+                        
+                        <!-- Netlify Spam Protection (Honey Pot) - Optional but good -->
+                        <input type="hidden" name="form-name" value="contact" />
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-1">Name</label>
+                                <!-- Added name="name" for Netlify to identify this field -->
+                                <input type="text" name="name" class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-legacy-gold" placeholder="Your Name" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-1">Email or Phone</label>
+                                <!-- Added name="email" for Netlify to identify this field -->
+                                <input type="text" name="email" class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-legacy-gold" placeholder="How can I reach you?" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-1">How can I help?</label>
+                                <textarea rows="4" name="message" class="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-legacy-gold" placeholder="I'm interested in a quote for..." required></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-legacy-navy text-white font-bold py-4 rounded-lg hover:bg-blue-900 transition">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-500 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <span class="block text-white font-bold text-lg mb-1">AnnMarie Barrell</span>
+                <span class="block text-sm">Agent at Legacy Agency of the Fingerlakes</span>
+            </div>
+            <div class="text-center md:text-right text-sm">
+                <p>&copy; 2025 Legacy Agency of the Fingerlakes. All rights reserved.</p>
+                <p class="mt-2">
+                    <a href="https://mylegacyins.com/" class="hover:text-white transition">Visit Main Agency Website</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
