@@ -8,8 +8,9 @@
 - **Type**: Static landing page
 - **Primary File**: `index.html`
 - **Technology**: HTML5, TailwindCSS, Vite
+- **Design Philosophy**: Mobile-first, touch-optimized
 - **Repository**: https://github.com/bbold-bb/AnnMarieB-Landing
-- **Target Audience**: Local residents and businesses in the Finger Lakes region seeking insurance services
+- **Target Audience**: Local residents and businesses in the Finger Lakes region seeking insurance services (primarily mobile users)
 
 ## Repository Structure
 
@@ -85,6 +86,135 @@ The site uses a professional insurance industry color scheme:
 - Font Awesome 6.0 icons used throughout
 - Shield icon for brand identity
 - Service-specific icons (car, house, store, sailboat)
+
+## Mobile-First Design Principles
+
+**CRITICAL**: This site is designed with a mobile-first approach. The majority of insurance clients will access this site from their phones, especially when searching for local agents or calling for quotes.
+
+### Mobile-First Philosophy
+- **Default styling is for mobile** - All base styles target mobile devices first
+- **Progressive enhancement** - Desktop features are added via Tailwind breakpoints (`sm:`, `md:`, `lg:`)
+- **Touch-first interactions** - All clickable elements sized for finger taps (minimum 44x44px)
+- **Performance matters** - Fast load times on mobile networks are essential
+
+### Mobile Breakpoints
+```
+Mobile (default):  < 640px  - Base styles, single column layouts
+Tablet (sm:):      640px+   - Minor adjustments
+Desktop (md:):     768px+   - Multi-column layouts, desktop nav
+Large (lg:):       1024px+  - Maximum width constraints, enhanced spacing
+```
+
+### Mobile-Specific Features
+
+#### 1. Mobile Navigation (Lines 40-81)
+- **Hamburger menu** for mobile devices (< 768px)
+- **Fixed position** navbar stays accessible while scrolling
+- **Touch-friendly** tap targets with adequate spacing
+- **Animated toggle** via simple JavaScript onclick handler
+
+#### 2. Responsive Grid Patterns
+The site uses mobile-first grid patterns:
+```html
+<!-- Services: 2 columns on mobile, 4 on desktop -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+<!-- About: Stacked on mobile, 3 columns on desktop -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+<!-- Contact: Stacked on mobile, 2 columns on desktop -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+```
+
+#### 3. Touch-Optimized CTAs
+- **Phone number buttons** with `tel:` links for one-tap calling
+- **Large tap targets** (px-8 py-4) on all primary buttons
+- **Clear visual feedback** with hover/active states
+- **Finger-friendly spacing** between interactive elements
+
+#### 4. Mobile-Optimized Typography
+- **Responsive text sizing**: `text-4xl lg:text-6xl` pattern
+- **Readable line lengths** with max-width constraints
+- **Adequate line height** for comfortable reading on small screens
+- **Scalable font sizes** that work across all device sizes
+
+#### 5. Mobile Performance
+- **CDN-hosted assets** (Tailwind, Font Awesome, Google Fonts) for fast delivery
+- **Minimal JavaScript** - Only ~5 lines for mobile menu toggle
+- **No external images** except profile photo (optimized via LinkedIn CDN)
+- **Single HTML file** - No additional HTTP requests for CSS/JS
+
+### Mobile Testing Requirements
+
+When making ANY changes to the site, you MUST verify:
+
+1. **Viewport Meta Tag** (Line 6): Never remove or modify
+   ```html
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   ```
+
+2. **Mobile Menu Functionality**:
+   - Toggle opens/closes smoothly
+   - Links are easily tappable
+   - Menu closes when selecting an anchor link
+
+3. **Form Usability on Mobile**:
+   - Input fields are easy to tap and type in
+   - Form fits within viewport (no horizontal scrolling)
+   - Submit button is prominent and tappable
+   - Keyboard doesn't obscure form fields
+
+4. **Phone Number Links**:
+   - All phone numbers use `tel:` protocol
+   - Format: `href="tel:3152208169"` (no spaces or hyphens in href)
+   - Display format can be pretty: (315) 220-8169
+
+5. **Text Readability**:
+   - No text smaller than 14px on mobile
+   - Adequate contrast ratios (WCAG AA minimum)
+   - Line lengths don't exceed 75 characters on mobile
+
+6. **Touch Target Sizes**:
+   - Buttons minimum 44x44px (iOS guidelines)
+   - Links have adequate padding for tap accuracy
+   - Spacing between tappable elements (at least 8px)
+
+### Mobile-First Development Workflow
+
+When adding or modifying features:
+
+```bash
+# 1. Start with mobile styles (no breakpoint prefix)
+class="text-lg px-4 py-2"
+
+# 2. Add tablet adjustments if needed (sm:)
+class="text-lg sm:text-xl px-4 py-2"
+
+# 3. Add desktop enhancements (md:, lg:)
+class="text-lg sm:text-xl md:text-2xl px-4 py-2 lg:px-6 lg:py-3"
+
+# NEVER start with desktop styles and work down!
+```
+
+### Common Mobile Pitfalls to AVOID
+
+❌ **Don't**:
+- Use fixed pixel widths that don't scale
+- Rely on hover states for critical interactions
+- Use small tap targets (< 44x44px)
+- Create horizontal scrolling on mobile
+- Use viewport units (vw/vh) without thorough testing
+- Forget to test on actual mobile devices
+- Add desktop-only features without mobile alternatives
+
+✅ **Do**:
+- Test on real mobile devices, not just DevTools
+- Use Tailwind's responsive utilities
+- Provide touch-friendly alternatives to hover effects
+- Ensure all content is accessible without horizontal scroll
+- Use relative units (rem, em, %) for flexible layouts
+- Test on slow mobile networks (3G simulation)
+- Verify iOS Safari AND Android Chrome compatibility
 
 ## Development Workflow
 
@@ -238,38 +368,84 @@ The contact form (lines 286-317) uses Netlify Forms:
 - Push directly to main branch (use feature branches)
 - Use inline JavaScript beyond simple event handlers
 - Remove accessibility features (alt text, semantic HTML, focus states)
+- **Remove or modify the viewport meta tag**
+- **Break mobile-first responsive patterns**
+- **Add hover-only interactions without touch alternatives**
+- **Use fixed widths that don't scale on mobile**
+- **Create elements smaller than 44x44px tap targets**
+- **Test only on desktop - mobile testing is MANDATORY**
 
 ### ALWAYS
 - Read files before editing
 - Preserve existing indentation and formatting
-- Test responsive behavior when changing layouts
+- **Test on mobile devices FIRST, then desktop**
+- **Verify touch interactions work correctly**
+- **Ensure no horizontal scrolling on mobile**
+- **Test phone number links on actual mobile devices**
 - Include descriptive commit messages
 - Push to designated feature branches with `-u` flag
 - Maintain brand consistency (colors, fonts, tone)
 - Keep the single-page structure (no multi-page navigation)
+- **Start with mobile styles, then add desktop enhancements**
 
 ## Testing and Validation
 
-### Manual Testing Checklist
+### Mobile-First Testing Checklist
+
+**CRITICAL**: Always test on mobile FIRST, then verify desktop. The majority of users will access this site on mobile devices.
+
+#### Mobile Testing (REQUIRED)
+- [ ] **Viewport renders correctly** - No horizontal scrolling at 320px, 375px, 414px widths
+- [ ] **Mobile menu works** - Opens/closes smoothly, all links tappable
+- [ ] **Phone links work** - Tap to call functionality on iOS and Android
+- [ ] **Form is usable** - Easy to tap inputs, keyboard doesn't hide submit button
+- [ ] **Touch targets adequate** - All buttons/links minimum 44x44px
+- [ ] **Text is readable** - No text smaller than 14px, good contrast
+- [ ] **Images scale properly** - Profile photo displays correctly at all sizes
+- [ ] **No fixed positioning issues** - Nav bar doesn't overlap content
+- [ ] **Fast load time** - Tests on 3G network simulation
+- [ ] **iOS Safari compatibility** - Tested on actual iPhone if possible
+- [ ] **Android Chrome compatibility** - Tested on actual Android if possible
+
+#### Desktop Testing (After Mobile)
 - [ ] All links work (external and anchor links)
-- [ ] Mobile menu toggles correctly
+- [ ] Desktop navigation displays correctly (no hamburger menu)
+- [ ] Multi-column layouts render properly
 - [ ] Form submits to Netlify (check Netlify dashboard)
-- [ ] Responsive design works at all breakpoints
 - [ ] Images load correctly
 - [ ] Icons display properly
-- [ ] Phone number links work on mobile
 - [ ] Hover states function correctly
+- [ ] Responsive breakpoints work (640px, 768px, 1024px)
 
-### Browser Testing
-- Chrome/Edge (primary)
-- Firefox
-- Safari (especially mobile Safari for iOS users)
-- Mobile devices (actual devices preferred over DevTools)
+#### Cross-Browser Testing Priority
+1. **Mobile Safari (iOS)** - Primary mobile browser for insurance demographic
+2. **Mobile Chrome (Android)** - Secondary mobile browser
+3. **Desktop Chrome/Edge** - Primary desktop browsers
+4. **Desktop Firefox** - Secondary desktop browser
+5. **Desktop Safari** - macOS users
 
-### Performance
-- Minimize custom CSS (leverage Tailwind utilities)
-- Images optimized and properly sized
-- CDN resources load reliably (Tailwind, Font Awesome, Google Fonts)
+**Testing Tools**:
+- Real devices (preferred): iPhone, Android phone
+- Chrome DevTools device emulation (secondary)
+- Responsive Design Mode in Firefox
+- BrowserStack or similar (for comprehensive testing)
+
+### Performance Testing
+
+#### Mobile Performance Metrics
+- **First Contentful Paint**: < 1.8s on 3G
+- **Time to Interactive**: < 3.5s on 3G
+- **Largest Contentful Paint**: < 2.5s
+- **Cumulative Layout Shift**: < 0.1
+- **Total Page Size**: < 1MB (currently ~200KB)
+
+#### Optimization Checklist
+- [ ] Minimize custom CSS (leverage Tailwind utilities)
+- [ ] Images optimized and properly sized
+- [ ] CDN resources load reliably (Tailwind, Font Awesome, Google Fonts)
+- [ ] No render-blocking resources
+- [ ] Efficient font loading (font-display: swap)
+- [ ] Minimal JavaScript execution time
 
 ## Contact Information
 
@@ -326,6 +502,7 @@ The contact form (lines 286-317) uses Netlify Forms:
 - Insurance industry has specific regulations - avoid making claims or promises
 - Local focus: Finger Lakes region, Waterloo, NY
 - Personal touch is key - AnnMarie's direct relationship with clients is the main value prop
+- **Mobile-first mindset**: Most insurance clients search on mobile while driving, at home, or during emergencies
 
 ### Working Style
 - Read files thoroughly before suggesting changes
@@ -333,7 +510,20 @@ The contact form (lines 286-317) uses Netlify Forms:
 - Explain reasoning for architectural decisions
 - Ask clarifying questions before making significant changes
 - Preserve existing patterns and conventions
-- Test responsive behavior for all changes
+- **ALWAYS test mobile first, then desktop**
+- **Think touch-first for all interactions**
+- **Verify phone links work on actual mobile devices**
+
+### Mobile-First Development Reminders
+When implementing ANY feature or change:
+
+1. **Start mobile, enhance desktop** - Never work backward from desktop to mobile
+2. **Touch over hover** - Assume no mouse, design for fingers
+3. **Test on real devices** - DevTools is for quick checks, not validation
+4. **Performance matters** - Mobile users may have slow connections
+5. **One-tap actions** - Phone calls, form submissions should be effortless
+6. **Readable without zoom** - Text must be legible at default zoom level
+7. **No horizontal scroll** - Content must fit in viewport at all widths
 
 ### Communication
 - Be concise and specific
@@ -341,9 +531,11 @@ The contact form (lines 286-317) uses Netlify Forms:
 - Reference file paths and line numbers
 - Explain trade-offs when multiple solutions exist
 - Confirm understanding of requirements before implementing
+- **Always mention mobile testing in implementation plans**
 
 ---
 
-**Last Updated**: 2025-12-02
+**Last Updated**: 2025-12-03
 **Repository**: https://github.com/bbold-bb/AnnMarieB-Landing
 **Maintained By**: AI assistants working with project stakeholders
+**Mobile-First**: This documentation emphasizes mobile-first development - always test on mobile devices first!
